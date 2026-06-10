@@ -1,0 +1,121 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a1a1a;
+  background: #fafafa;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#status {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  min-height: 1.5em;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  width: min(80vmin, 360px);
+  aspect-ratio: 1;
+  background: #333;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+#board [role="row"] {
+  display: contents;
+}
+
+#board button[role="gridcell"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: none;
+  border-radius: 2px;
+  font-size: min(10vmin, 3rem);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  color: #1a1a1a;
+}
+
+#board button[role="gridcell"]:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: -3px;
+  z-index: 1;
+}
+
+#board button[role="gridcell"]:hover:not(:disabled) {
+  background: #f0f0f0;
+}
+
+#board button[role="gridcell"]:disabled {
+  cursor: default;
+}
+
+@keyframes mark-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#board button.cell-x {
+  color: #2563eb;
+  animation: mark-appear 180ms ease-out;
+}
+
+#board button.cell-o {
+  color: #dc2626;
+  animation: mark-appear 180ms ease-out;
+}
+
+#board button.cell-win {
+  background: #bbf7d0;
+}
+
+#new-game {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: #2563eb;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#new-game:hover {
+  background: #1d4ed8;
+}
+
+#new-game:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}

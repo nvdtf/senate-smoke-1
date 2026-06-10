@@ -1,9 +1,807 @@
 {
-  "phase": "IDLE",
+  "phase": "BUILDING",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
   "speckit_version": "v0.10.1",
-  "delta_loops": 0,
-  "sessions": 1
+  "idea": "build tic-tac-toe",
+  "idea_issue": 1,
+  "feature_branch": "001-tic-tac-toe",
+  "feature_dir": "specs/001-tic-tac-toe",
+  "feature_pr": 2,
+  "questionnaire_issue": 3,
+  "dimensions": [
+    {
+      "id": "D1",
+      "title": "Winning-line visual feedback",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Status text only — no board highlight"
+        },
+        {
+          "key": "b",
+          "label": "Highlight winning cells with background color"
+        },
+        {
+          "key": "c",
+          "label": "Animated strike-through line across winning cells"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "Option c implies animation work conflicting with the agent-inferred no-animations assumption",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D2",
+      "title": "Board responsiveness and mobile support",
+      "stakes": "HIGH",
+      "options": [
+        {
+          "key": "a",
+          "label": "Fixed-size centered board (~400px, desktop only)"
+        },
+        {
+          "key": "b",
+          "label": "Responsive board scaling to viewport (mobile-friendly)"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "Option a excludes comfortable mobile play, potentially contradicting SC-004 'any modern browser' intent",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D3",
+      "title": "Keyboard accessibility",
+      "stakes": "HIGH",
+      "options": [
+        {
+          "key": "a",
+          "label": "Mouse and touch only"
+        },
+        {
+          "key": "b",
+          "label": "Keyboard navigation (Tab/Arrow + Enter)"
+        },
+        {
+          "key": "c",
+          "label": "Full keyboard nav + ARIA roles for screen readers"
+        }
+      ],
+      "recommendation": "c",
+      "cost_note": "Option a may not meet accessibility standards if publicly hosted; retrofitting ARIA later requires HTML restructuring",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D4",
+      "title": "Session score tally",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "No score tracking — each game standalone"
+        },
+        {
+          "key": "b",
+          "label": "Running X/O/Draw tally, resets on page refresh"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D5",
+      "title": "Mark color differentiation",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Monochrome — both marks same color"
+        },
+        {
+          "key": "b",
+          "label": "Two-color — X and O in distinct accessible colors"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D6",
+      "title": "Visual tone",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Minimal monochrome — white background, black lines, clean sans-serif"
+        },
+        {
+          "key": "b",
+          "label": "Playful colorful — bright palette, rounded corners, game energy"
+        },
+        {
+          "key": "c",
+          "label": "Dark-mode-first — dark background, light marks, modern feel"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D7",
+      "title": "Move placement animation",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Instant mark placement, no animation"
+        },
+        {
+          "key": "b",
+          "label": "Subtle CSS transition (fade-in or scale-up, under 200ms)"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "Agent-inferred 'no animations' assumption was never human-ratified",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D8",
+      "title": "New Game button visibility",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Always visible"
+        },
+        {
+          "key": "b",
+          "label": "Visible only after game ends"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "Option b contradicts User Story 3 Acceptance Scenario 2 which requires mid-game restart",
+      "defer_to_probe": false
+    }
+  ],
+  "dim_tallies": [
+    {
+      "dimension": "D1",
+      "title": "Winning-line visual feedback",
+      "stakes": "MED",
+      "winner": "b",
+      "winner_label": "Highlight winning cells with background color",
+      "weighted_pct": 70,
+      "status": "decided",
+      "by_choice": {
+        "a": 30,
+        "b": 70
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D2",
+      "title": "Board responsiveness and mobile support",
+      "stakes": "HIGH",
+      "winner": "b",
+      "winner_label": "Responsive board scaling to viewport (mobile-friendly)",
+      "weighted_pct": 70,
+      "status": "decided",
+      "by_choice": {
+        "a": 30,
+        "b": 70
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D3",
+      "title": "Keyboard accessibility",
+      "stakes": "HIGH",
+      "winner": "c",
+      "winner_label": "Full keyboard nav + ARIA roles for screen readers",
+      "weighted_pct": 100,
+      "status": "decided",
+      "by_choice": {
+        "c": 100
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "c",
+        "carol": "c"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D4",
+      "title": "Session score tally",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "No score tracking — each game standalone",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 50,
+        "b": 50
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "recommendation",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D5",
+      "title": "Mark color differentiation",
+      "stakes": "LOW",
+      "winner": "b",
+      "winner_label": "Two-color — X and O in distinct accessible colors",
+      "weighted_pct": 100,
+      "status": "decided",
+      "by_choice": {
+        "b": 100
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "b",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "recommendation",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D6",
+      "title": "Visual tone",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "Minimal monochrome — white background, black lines, clean sans-serif",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 50,
+        "b": 50
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D7",
+      "title": "Move placement animation",
+      "stakes": "LOW",
+      "winner": "b",
+      "winner_label": "Subtle CSS transition (fade-in or scale-up, under 200ms)",
+      "weighted_pct": 80,
+      "status": "decided",
+      "by_choice": {
+        "a": 20,
+        "b": 80
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "b",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "recommendation",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D8",
+      "title": "New Game button visibility",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "Always visible",
+      "weighted_pct": 100,
+      "status": "decided",
+      "by_choice": {
+        "a": 100
+      },
+      "votes": {
+        "alice": "a",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    }
+  ],
+  "aggregate": {
+    "results": [
+      {
+        "dimension": "D2",
+        "winner": "b",
+        "weighted_pct": 70,
+        "status": "decided"
+      },
+      {
+        "dimension": "D3",
+        "winner": "c",
+        "weighted_pct": 100,
+        "status": "decided"
+      },
+      {
+        "dimension": "D8",
+        "winner": "a",
+        "weighted_pct": 100,
+        "status": "decided"
+      },
+      {
+        "dimension": "D1",
+        "winner": "c",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D4",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      }
+    ],
+    "clarifications": [
+      {
+        "question": "Board responsiveness and mobile support",
+        "answer": "Responsive board scaling to viewport (mobile-friendly)",
+        "weighted_pct": 70,
+        "provenance": "D2"
+      },
+      {
+        "question": "Keyboard accessibility",
+        "answer": "Full keyboard nav + ARIA roles for screen readers",
+        "weighted_pct": 100,
+        "provenance": "D3"
+      },
+      {
+        "question": "New Game button visibility",
+        "answer": "Always visible",
+        "weighted_pct": 100,
+        "provenance": "D8"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "FR-011",
+        "text": "System MUST render the game board responsively, scaling to the viewport width so that the board is fully usable on mobile devices without horizontal scrolling.",
+        "provenance": "decided: 70% weighted (D2)"
+      },
+      {
+        "id": "FR-012",
+        "text": "System MUST support full keyboard navigation of all board cells (arrow keys and/or Tab) and include ARIA roles and labels so that screen readers can announce cell position, cell state, and game status.",
+        "provenance": "decided: 100% weighted (D3)"
+      },
+      {
+        "id": "FR-013",
+        "text": "System MUST display the \"New Game\" button at all times — before, during, and after a game — not only after the game ends.",
+        "provenance": "decided: 100% weighted (D8)"
+      }
+    ],
+    "deferred": [
+      "D1",
+      "D4",
+      "D5",
+      "D6",
+      "D7"
+    ]
+  },
+  "feedback_issue": 45,
+  "probe_url": "https://nvdtf.github.io/senate-smoke-1/",
+  "delta_loops": 2,
+  "delta_aggregate": {
+    "results": [
+      {
+        "dimension": "D1",
+        "winner": "b",
+        "weighted_pct": 70,
+        "status": "decided"
+      },
+      {
+        "dimension": "D4",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D6",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      }
+    ],
+    "clarifications": [
+      {
+        "question": "Winning-line visual feedback",
+        "answer": "Highlight winning cells with background color",
+        "weighted_pct": 70,
+        "provenance": "D1"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "R102",
+        "text": "System MUST highlight the three winning cells with a visually distinct background color when a player achieves three in a row, so the winning line is immediately identifiable on the board.",
+        "provenance": "probe: 70% weighted (D1)"
+      }
+    ],
+    "deferred": [
+      "D4",
+      "D6"
+    ]
+  },
+  "tasks": {
+    "T001": {
+      "id": "T001",
+      "issue": 4,
+      "pr": 5,
+      "branch": "task/T001",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T002": {
+      "id": "T002",
+      "issue": 6,
+      "pr": 8,
+      "branch": "task/T002",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T003": {
+      "id": "T003",
+      "issue": 7,
+      "pr": 9,
+      "branch": "task/T003",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T004": {
+      "id": "T004",
+      "issue": 10,
+      "pr": 11,
+      "branch": "task/T004",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T005": {
+      "id": "T005",
+      "issue": 12,
+      "pr": 13,
+      "branch": "task/T005",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T006": {
+      "id": "T006",
+      "issue": 14,
+      "pr": 15,
+      "branch": "task/T006",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T007": {
+      "id": "T007",
+      "issue": 16,
+      "pr": 17,
+      "branch": "task/T007",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T008": {
+      "id": "T008",
+      "issue": 18,
+      "pr": 19,
+      "branch": "task/T008",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T009": {
+      "id": "T009",
+      "issue": 20,
+      "pr": 21,
+      "branch": "task/T009",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T010": {
+      "id": "T010",
+      "issue": 22,
+      "pr": 23,
+      "branch": "task/T010",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T011": {
+      "id": "T011",
+      "issue": 24,
+      "pr": 25,
+      "branch": "task/T011",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T012": {
+      "id": "T012",
+      "issue": 26,
+      "pr": 27,
+      "branch": "task/T012",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T013": {
+      "id": "T013",
+      "issue": 28,
+      "pr": 29,
+      "branch": "task/T013",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T014": {
+      "id": "T014",
+      "issue": 30,
+      "pr": 31,
+      "branch": "task/T014",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T015": {
+      "id": "T015",
+      "issue": 32,
+      "pr": 33,
+      "branch": "task/T015",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T016": {
+      "id": "T016",
+      "issue": 34,
+      "pr": 35,
+      "branch": "task/T016",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T017": {
+      "id": "T017",
+      "issue": 37,
+      "pr": 38,
+      "branch": "task/T017",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T018": {
+      "id": "T018",
+      "issue": 39,
+      "pr": 40,
+      "branch": "task/T018",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T019": {
+      "id": "T019",
+      "issue": 41,
+      "pr": 42,
+      "branch": "task/T019",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T020": {
+      "id": "T020",
+      "issue": 43,
+      "pr": 44,
+      "branch": "task/T020",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 2
+    },
+    "T021": {
+      "id": "T021",
+      "issue": 46,
+      "pr": 47,
+      "branch": "task/T021",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T022": {
+      "id": "T022",
+      "issue": 48,
+      "pr": 49,
+      "branch": "task/T022",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T023": {
+      "id": "T023",
+      "issue": 50,
+      "branch": "task/T023",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    }
+  },
+  "sessions": 78,
+  "history": [
+    {
+      "from": "IDLE",
+      "to": "IDEA",
+      "at": "2026-06-10T18:44:19.32053Z",
+      "note": "idea issue #1"
+    },
+    {
+      "from": "IDEA",
+      "to": "INTERROGATED",
+      "at": "2026-06-10T18:50:19.402588Z",
+      "note": "questionnaire #3 (8 dims), feature PR #2"
+    },
+    {
+      "from": "INTERROGATED",
+      "to": "VOTED",
+      "at": "2026-06-10T18:52:34.932482Z",
+      "note": "8 dims tallied, deferred: D1,D4,D5,D6,D7"
+    },
+    {
+      "from": "VOTED",
+      "to": "SPEC_PATCHED",
+      "at": "2026-06-10T18:53:00.973938Z",
+      "note": "3 clarifications, 3 requirements, deferred: D1,D4,D5,D6,D7"
+    },
+    {
+      "from": "SPEC_PATCHED",
+      "to": "RATIFIED",
+      "at": "2026-06-10T18:55:17.505422Z",
+      "note": "PR #2 labeled ratified"
+    },
+    {
+      "from": "RATIFIED",
+      "to": "PLANNED",
+      "at": "2026-06-10T19:01:21.74962Z",
+      "note": "plan + tasks generated"
+    },
+    {
+      "from": "PLANNED",
+      "to": "ANALYZED",
+      "at": "2026-06-10T19:10:20.137849Z",
+      "note": "analyze passed"
+    },
+    {
+      "from": "ANALYZED",
+      "to": "BUILDING",
+      "at": "2026-06-10T19:10:36.175271Z",
+      "note": "dispatch started"
+    },
+    {
+      "from": "BUILDING",
+      "to": "BUILT",
+      "at": "2026-06-10T19:50:06.780323Z",
+      "note": "all tasks merged"
+    },
+    {
+      "from": "BUILT",
+      "to": "PROBE_LIVE",
+      "at": "2026-06-10T19:50:30.45064Z",
+      "note": "probe live at https://nvdtf.github.io/senate-smoke-1/, feedback issue #36"
+    },
+    {
+      "from": "PROBE_LIVE",
+      "to": "FEEDBACK",
+      "at": "2026-06-10T19:52:55.807194Z",
+      "note": "round 1: 2 delta requirements"
+    },
+    {
+      "from": "FEEDBACK",
+      "to": "DELTA",
+      "at": "2026-06-10T19:53:09.073782Z",
+      "note": "delta loop 1/2"
+    },
+    {
+      "from": "DELTA",
+      "to": "ANALYZED",
+      "at": "2026-06-10T19:57:09.576806Z",
+      "note": "delta 1 ratified + analyzed"
+    },
+    {
+      "from": "ANALYZED",
+      "to": "BUILDING",
+      "at": "2026-06-10T19:57:09.621977Z",
+      "note": "dispatch started"
+    },
+    {
+      "from": "BUILDING",
+      "to": "BUILT",
+      "at": "2026-06-10T20:12:05.372013Z",
+      "note": "all tasks merged"
+    },
+    {
+      "from": "BUILT",
+      "to": "PROBE_LIVE",
+      "at": "2026-06-10T20:14:09.563448Z",
+      "note": "probe live at https://nvdtf.github.io/senate-smoke-1/, feedback issue #45"
+    },
+    {
+      "from": "PROBE_LIVE",
+      "to": "FEEDBACK",
+      "at": "2026-06-10T20:17:21.548469Z",
+      "note": "round 2: 1 delta requirements"
+    },
+    {
+      "from": "FEEDBACK",
+      "to": "DELTA",
+      "at": "2026-06-10T20:17:21.611211Z",
+      "note": "delta loop 2/2"
+    },
+    {
+      "from": "DELTA",
+      "to": "ANALYZED",
+      "at": "2026-06-10T20:27:17.785746Z",
+      "note": "delta 2 ratified + analyzed"
+    },
+    {
+      "from": "ANALYZED",
+      "to": "BUILDING",
+      "at": "2026-06-10T20:27:17.82841Z",
+      "note": "dispatch started"
+    }
+  ]
 }
