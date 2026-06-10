@@ -1,5 +1,5 @@
 {
-  "phase": "BUILT",
+  "phase": "PROBE_LIVE",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -431,6 +431,8 @@
       "D7"
     ]
   },
+  "feedback_issue": 36,
+  "probe_url": "https://nvdtf.github.io/senate-smoke-1/",
   "delta_loops": 0,
   "tasks": {
     "T001": {
@@ -633,6 +635,12 @@
       "to": "BUILT",
       "at": "2026-06-10T19:50:06.780323Z",
       "note": "all tasks merged"
+    },
+    {
+      "from": "BUILT",
+      "to": "PROBE_LIVE",
+      "at": "2026-06-10T19:50:30.45064Z",
+      "note": "probe live at https://nvdtf.github.io/senate-smoke-1/, feedback issue #36"
     }
   ]
 }
