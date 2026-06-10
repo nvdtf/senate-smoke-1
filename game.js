@@ -69,5 +69,14 @@ function renderBoard() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Entry point — wired up by subsequent tasks
+  var board = document.getElementById('board');
+
+  board.addEventListener('click', function (e) {
+    var button = e.target.closest('button[data-index]');
+    if (!button) return;
+    var index = Number(button.getAttribute('data-index'));
+    if (makeMove(index)) {
+      renderBoard();
+    }
+  });
 });
