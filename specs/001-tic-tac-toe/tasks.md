@@ -103,7 +103,7 @@
 
 ## Phase 7: Delta — Probe-Decided Visual Enhancements
 
-**Purpose**: Implement requirements decided after probe deployment (R100 mark color differentiation, R101 placement animation)
+**Purpose**: Implement requirements decided after probe deployment (R100 mark color differentiation, R101 placement animation, R102 winning-line highlight)
 
 **Prerequisites**: All prior phases complete (T001–T016)
 
@@ -111,8 +111,11 @@
 - [x] T018 [P] Add CSS transition or keyframe animation for mark placement (fade-in or scale-up, max 200ms duration) in style.css (R101)
 - [x] T019 Update renderBoard function in game.js to apply `.cell-x` / `.cell-o` CSS classes based on cell content for color differentiation, and add an animation trigger class on newly placed marks so the CSS transition fires (R100, R101)
 - [x] T020 Validate mark color differentiation and placement animation by opening index.html in a browser, placing marks, and confirming X and O render in distinct colors and each new mark animates in within 200ms
+- [ ] T021 [P] Add `.cell-win` CSS class with a visually distinct background color for winning cells in style.css (R102)
+- [ ] T022 Update game state to store winning line cell indices (e.g., `winningCells` array), modify checkWin to populate them on win detection, and update renderBoard to apply `.cell-win` class to the three winning cells in game.js (R102)
+- [ ] T023 Validate winning-cell highlight by opening index.html in a browser, playing to a win on multiple lines (row, column, diagonal), and confirming the three winning cells display a distinct background color each time in index.html (R102)
 
-**Checkpoint**: All probe-decided visual enhancements are implemented and validated.
+**Checkpoint**: All probe-decided visual enhancements (R100, R101, R102) are implemented and validated.
 
 ---
 
@@ -126,7 +129,7 @@
 - **US2 (Phase 4)**: Depends on US1 (T009) — status updates are meaningful only with a playable game
 - **US3 (Phase 5)**: Depends on Foundational (T002, T003) — can start after Phase 2 if desired, but logically follows US1+US2
 - **Polish (Phase 6)**: Depends on all user stories being complete (T013)
-- **Delta (Phase 7)**: Depends on Polish (Phase 6) — visual enhancements layer on top of complete game
+- **Delta (Phase 7)**: Depends on Polish (Phase 6) — visual enhancements layer on top of complete game. T021–T023 add R102 winning-cell highlight.
 
 ### User Story Dependencies
 
@@ -144,8 +147,10 @@
 
 - T002 (style.css) and T003 (game.js) can run in parallel — different files, no dependencies
 - T014 (keyboard nav) and T015 (ARIA refinement) can run in parallel — different concerns within game.js, non-overlapping code sections
-- T017 (color CSS) and T018 (animation CSS) can run in parallel — independent CSS rules in style.css
+- T017 (color CSS) and T018 (animation CSS) and T021 (win highlight CSS) can run in parallel — independent CSS rules in style.css
 - T019 depends on T017 and T018 — integrates both into game.js rendering
+- T022 depends on T021 — integrates win highlight CSS into game.js rendering and state
+- T023 depends on T022 — validates winning-cell highlight in browser
 
 ---
 
@@ -168,9 +173,10 @@ Task: "Verify and refine ARIA attributes in game.js" (T015)
 ## Parallel Example: Delta Phase
 
 ```bash
-# Launch both CSS tasks together (independent rules in same file):
+# Launch all independent CSS tasks together (independent rules in same file):
 Task: "Add distinct accessible color CSS rules for X and O marks" (T017)
 Task: "Add CSS transition/animation for mark placement" (T018)
+Task: "Add .cell-win CSS class for winning cells" (T021)
 ```
 
 ---
@@ -192,7 +198,7 @@ Task: "Add CSS transition/animation for mark placement" (T018)
 3. Add User Story 2 → Validate → Status display always accurate
 4. Add User Story 3 → Validate → Restart works at any point
 5. Polish → Keyboard nav, ARIA, final validation
-6. Delta → Mark colors, placement animation → Validate visual enhancements
+6. Delta → Mark colors, placement animation, winning-cell highlight → Validate visual enhancements
 7. Each story/phase adds value without breaking previous work
 
 ### Single Developer (Sequential)
@@ -200,7 +206,7 @@ Task: "Add CSS transition/animation for mark placement" (T018)
 1. T001 → T002+T003 (parallel) → T004 → T005 → T006 → T007 → T008 → T009 → **validate MVP**
 2. T010 → T011 → T012 → T013 → **validate all stories**
 3. T014+T015 (parallel) → T016 → **validate polish**
-4. T017+T018 (parallel) → T019 → T020 → **done**
+4. T017+T018+T021 (parallel) → T019 → T020 → T022 → T023 → **done**
 
 ---
 
@@ -212,6 +218,6 @@ Task: "Add CSS transition/animation for mark placement" (T018)
 - No tests generated — spec specifies browser-based manual testing (quickstart.md)
 - Constitution: Probe-First Delivery — US1 completion IS the deployable probe
 - Constitution: Static Simplicity — no build step, no server required, open index.html directly
-- Delta tasks (T017–T020) implement probe-decided requirements R100 and R101
+- Delta tasks (T017–T023) implement probe-decided requirements R100, R101, and R102
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently

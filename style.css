@@ -94,6 +94,10 @@ h1 {
   animation: mark-appear 180ms ease-out;
 }
 
+#board button.cell-win {
+  background: #bbf7d0;
+}
+
 #new-game {
   margin-top: 1.5rem;
   padding: 0.6rem 1.5rem;
