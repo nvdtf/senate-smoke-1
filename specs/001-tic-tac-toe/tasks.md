@@ -35,7 +35,7 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T002 [P] Create style.css with CSS Grid board layout (repeat(3, 1fr)), cell styling, responsive sizing (vmin-based with max-width), status display styling, and New Game button styling in style.css
+- [x] T002 [P] Create style.css with CSS Grid board layout (repeat(3, 1fr)), cell styling, responsive sizing (vmin-based with max-width), status display styling, and New Game button styling in style.css
 - [ ] T003 [P] Create game.js with WINNING_LINES constant (8 triples), initial GameState object (board array of 9 empty strings, currentPlayer 'X', gameOver false, winner null), and DOMContentLoaded entry point scaffold in game.js
 
 **Checkpoint**: Foundation ready — user story implementation can now begin
