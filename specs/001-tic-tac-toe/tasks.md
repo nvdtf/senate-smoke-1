@@ -97,7 +97,7 @@
 
 - [x] T014 [P] Implement arrow-key navigation between grid cells within #board (move focus on ArrowUp/Down/Left/Right, wrap optional) in game.js
 - [x] T015 [P] Verify and refine ARIA attributes: ensure cell aria-labels update on state change, #status aria-live announces changes, and all cells disable on game over in game.js
-- [ ] T016 Run quickstart.md validation scenarios (Scenarios 1-6) in a browser to verify all acceptance criteria and success criteria (SC-001 through SC-005)
+- [x] T016 Run quickstart.md validation scenarios (Scenarios 1-6) in a browser to verify all acceptance criteria and success criteria (SC-001 through SC-005)
 
 ---
 
