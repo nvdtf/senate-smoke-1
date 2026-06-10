@@ -1,5 +1,5 @@
 {
-  "phase": "BUILT",
+  "phase": "DONE",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -432,6 +432,7 @@
   "feedback_issue": 45,
   "probe_url": "https://nvdtf.github.io/senate-smoke-1/",
   "delta_loops": 2,
+  "delta_note": "probe_revision_cap (2) reached — finishing with unresolved feedback on record",
   "delta_aggregate": {
     "results": [
       {
@@ -808,6 +809,12 @@
       "to": "BUILT",
       "at": "2026-06-10T20:36:43.923022Z",
       "note": "all tasks merged"
+    },
+    {
+      "from": "BUILT",
+      "to": "DONE",
+      "at": "2026-06-10T20:36:45.725031Z",
+      "note": "probe_revision_cap (2) reached — finishing with unresolved feedback on record"
     }
   ]
 }
