@@ -73,6 +73,14 @@ h1 {
   cursor: default;
 }
 
+.cell-x {
+  color: #2563eb;
+}
+
+.cell-o {
+  color: #dc2626;
+}
+
 #new-game {
   margin-top: 1.5rem;
   padding: 0.6rem 1.5rem;
