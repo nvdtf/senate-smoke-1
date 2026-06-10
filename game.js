@@ -14,6 +14,7 @@ const gameState = {
   currentPlayer: 'X',
   gameOver: false,
   winner: null,
+  winningCells: [],
 };
 
 function checkWin() {
@@ -21,6 +22,7 @@ function checkWin() {
     if (gameState.board[a] !== '' &&
         gameState.board[a] === gameState.board[b] &&
         gameState.board[a] === gameState.board[c]) {
+      gameState.winningCells = [a, b, c];
       return gameState.board[a];
     }
   }
@@ -75,6 +77,7 @@ function renderBoard() {
     cell.textContent = value;
     cell.classList.toggle('cell-x', value === 'X');
     cell.classList.toggle('cell-o', value === 'O');
+    cell.classList.toggle('cell-win', gameState.winningCells.includes(index));
     cell.disabled = value !== '' || gameState.gameOver;
     cell.setAttribute('aria-label',
       'Row ' + row + ', Column ' + col + ': ' + (value || 'empty'));
@@ -87,6 +90,7 @@ function resetGame() {
   gameState.currentPlayer = 'X';
   gameState.gameOver = false;
   gameState.winner = null;
+  gameState.winningCells = [];
   renderBoard();
 }
 
