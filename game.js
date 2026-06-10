@@ -16,6 +16,15 @@ const gameState = {
   winner: null,
 };
 
+function makeMove(cellIndex) {
+  if (gameState.gameOver) return false;
+  if (gameState.board[cellIndex] !== '') return false;
+
+  gameState.board[cellIndex] = gameState.currentPlayer;
+  gameState.currentPlayer = gameState.currentPlayer === 'X' ? 'O' : 'X';
+  return true;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   // Entry point — wired up by subsequent tasks
 });
