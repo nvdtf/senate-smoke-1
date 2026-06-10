@@ -73,9 +73,13 @@ function renderBoard() {
     const col = (index % 3) + 1;
 
     cell.textContent = value;
-    cell.classList.remove('cell-x', 'cell-o');
-    if (value === 'X') cell.classList.add('cell-x');
-    else if (value === 'O') cell.classList.add('cell-o');
+    if (value === 'X' && !cell.classList.contains('cell-x')) {
+      cell.classList.add('cell-x');
+    } else if (value === 'O' && !cell.classList.contains('cell-o')) {
+      cell.classList.add('cell-o');
+    } else if (value === '') {
+      cell.classList.remove('cell-x', 'cell-o');
+    }
     cell.disabled = value !== '' || gameState.gameOver;
     cell.setAttribute('aria-label',
       'Row ' + row + ', Column ' + col + ': ' + (value || 'empty'));
