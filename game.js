@@ -36,6 +36,19 @@ function makeMove(cellIndex) {
   if (gameState.board[cellIndex] !== '') return false;
 
   gameState.board[cellIndex] = gameState.currentPlayer;
+
+  const winner = checkWin();
+  if (winner) {
+    gameState.gameOver = true;
+    gameState.winner = winner;
+    return true;
+  }
+
+  if (checkDraw()) {
+    gameState.gameOver = true;
+    return true;
+  }
+
   gameState.currentPlayer = gameState.currentPlayer === 'X' ? 'O' : 'X';
   return true;
 }
