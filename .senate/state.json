@@ -1,5 +1,5 @@
 {
-  "phase": "VOTED",
+  "phase": "SPEC_PATCHED",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -353,6 +353,84 @@
       }
     }
   ],
+  "aggregate": {
+    "results": [
+      {
+        "dimension": "D2",
+        "winner": "b",
+        "weighted_pct": 70,
+        "status": "decided"
+      },
+      {
+        "dimension": "D3",
+        "winner": "c",
+        "weighted_pct": 100,
+        "status": "decided"
+      },
+      {
+        "dimension": "D8",
+        "winner": "a",
+        "weighted_pct": 100,
+        "status": "decided"
+      },
+      {
+        "dimension": "D1",
+        "winner": "c",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D4",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      }
+    ],
+    "clarifications": [
+      {
+        "question": "Board responsiveness and mobile support",
+        "answer": "Responsive board scaling to viewport (mobile-friendly)",
+        "weighted_pct": 70,
+        "provenance": "D2"
+      },
+      {
+        "question": "Keyboard accessibility",
+        "answer": "Full keyboard nav + ARIA roles for screen readers",
+        "weighted_pct": 100,
+        "provenance": "D3"
+      },
+      {
+        "question": "New Game button visibility",
+        "answer": "Always visible",
+        "weighted_pct": 100,
+        "provenance": "D8"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "FR-011",
+        "text": "System MUST render the game board responsively, scaling to the viewport width so that the board is fully usable on mobile devices without horizontal scrolling.",
+        "provenance": "decided: 70% weighted (D2)"
+      },
+      {
+        "id": "FR-012",
+        "text": "System MUST support full keyboard navigation of all board cells (arrow keys and/or Tab) and include ARIA roles and labels so that screen readers can announce cell position, cell state, and game status.",
+        "provenance": "decided: 100% weighted (D3)"
+      },
+      {
+        "id": "FR-013",
+        "text": "System MUST display the \"New Game\" button at all times — before, during, and after a game — not only after the game ends.",
+        "provenance": "decided: 100% weighted (D8)"
+      }
+    ],
+    "deferred": [
+      "D1",
+      "D4",
+      "D5",
+      "D6",
+      "D7"
+    ]
+  },
   "delta_loops": 0,
   "sessions": 8,
   "history": [
@@ -373,6 +451,12 @@
       "to": "VOTED",
       "at": "2026-06-10T18:52:34.932482Z",
       "note": "8 dims tallied, deferred: D1,D4,D5,D6,D7"
+    },
+    {
+      "from": "VOTED",
+      "to": "SPEC_PATCHED",
+      "at": "2026-06-10T18:53:00.973938Z",
+      "note": "3 clarifications, 3 requirements, deferred: D1,D4,D5,D6,D7"
     }
   ]
 }
