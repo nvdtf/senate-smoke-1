@@ -53,6 +53,17 @@ function makeMove(cellIndex) {
   return true;
 }
 
+function updateStatus() {
+  var statusEl = document.getElementById('status');
+  if (gameState.winner) {
+    statusEl.textContent = gameState.winner + ' wins!';
+  } else if (gameState.gameOver) {
+    statusEl.textContent = "It's a draw!";
+  } else {
+    statusEl.textContent = gameState.currentPlayer + "'s turn";
+  }
+}
+
 function renderBoard() {
   const cells = document.querySelectorAll('#board button[data-index]');
   cells.forEach(function (cell) {
@@ -66,6 +77,7 @@ function renderBoard() {
     cell.setAttribute('aria-label',
       'Row ' + row + ', Column ' + col + ': ' + (value || 'empty'));
   });
+  updateStatus();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
