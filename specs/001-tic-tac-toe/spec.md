@@ -115,6 +115,9 @@ After a game ends (win or draw) or at any point during play, the user can click 
 - **Board responsiveness and mobile support** → Responsive board scaling to viewport (mobile-friendly) (70% weighted, D2)
 - **Keyboard accessibility** → Full keyboard nav + ARIA roles for screen readers (100% weighted, D3)
 - **New Game button visibility** → Always visible (100% weighted, D8)
+- **Mark color differentiation** → Two-color — X and O in distinct accessible colors (100% weighted, D5)
+- **Move placement animation** → Subtle CSS transition (fade-in or scale-up, under 200ms) (80% weighted, D7)
+
 
 ## Deferred to Probe
 
@@ -125,3 +128,8 @@ These dimensions are **intentionally deferred**: the group reacts to the deploye
 - D5 — Mark color differentiation (a: Monochrome — both marks same color · b: Two-color — X and O in distinct accessible colors)
 - D6 — Visual tone (a: Minimal monochrome — white background, black lines, clean sans-serif · b: Playful colorful — bright palette, rounded corners, game energy · c: Dark-mode-first — dark background, light marks, modern feel)
 - D7 — Move placement animation (a: Instant mark placement, no animation · b: Subtle CSS transition (fade-in or scale-up, under 200ms))
+
+## Requirements
+
+- R100: System MUST render X marks and O marks in two distinct, accessible colors so that the two players' marks are visually differentiated by color (not only by shape). — *provenance: probe: 100% weighted (D5)*
+- R101: System MUST animate each newly placed mark with a subtle CSS transition (fade-in or scale-up) lasting no more than 200 ms. — *provenance: probe: 80% weighted (D7)*
