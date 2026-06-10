@@ -51,7 +51,7 @@
 ### Implementation for User Story 1
 
 - [x] T004 [US1] Implement makeMove function that places current player's mark in an empty cell, rejects occupied cells (FR-004), and switches currentPlayer in game.js
-- [ ] T005 [US1] Implement checkWin function that iterates WINNING_LINES and returns the winner ('X'/'O') or null in game.js
+- [x] T005 [US1] Implement checkWin function that iterates WINNING_LINES and returns the winner ('X'/'O') or null in game.js
 - [ ] T006 [US1] Implement checkDraw function that returns true when all 9 cells are filled and no winner exists in game.js
 - [ ] T007 [US1] Integrate checkWin and checkDraw into makeMove so gameOver and winner are set after each move, blocking further moves (FR-008) in game.js
 - [ ] T008 [US1] Implement renderBoard function that updates each cell button's text content, disabled attribute, and aria-label ("Row r, Column c: X/O/empty") in game.js
