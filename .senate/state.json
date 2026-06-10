@@ -1,5 +1,5 @@
 {
-  "phase": "DELTA",
+  "phase": "ANALYZED",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -764,6 +764,12 @@
       "to": "DELTA",
       "at": "2026-06-10T20:17:21.611211Z",
       "note": "delta loop 2/2"
+    },
+    {
+      "from": "DELTA",
+      "to": "ANALYZED",
+      "at": "2026-06-10T20:27:17.785746Z",
+      "note": "delta 2 ratified + analyzed"
     }
   ]
 }
