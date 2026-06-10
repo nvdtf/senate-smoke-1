@@ -1,9 +1,19 @@
 {
-  "phase": "IDLE",
+  "phase": "IDEA",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
   "speckit_version": "v0.10.1",
+  "idea": "build tic-tac-toe",
+  "idea_issue": 1,
   "delta_loops": 0,
-  "sessions": 1
+  "sessions": 1,
+  "history": [
+    {
+      "from": "IDLE",
+      "to": "IDEA",
+      "at": "2026-06-10T18:44:19.32053Z",
+      "note": "idea issue #1"
+    }
+  ]
 }
