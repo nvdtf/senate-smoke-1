@@ -1,5 +1,5 @@
 {
-  "phase": "RATIFIED",
+  "phase": "PLANNED",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -463,6 +463,12 @@
       "to": "RATIFIED",
       "at": "2026-06-10T18:55:17.505422Z",
       "note": "PR #2 labeled ratified"
+    },
+    {
+      "from": "RATIFIED",
+      "to": "PLANNED",
+      "at": "2026-06-10T19:01:21.74962Z",
+      "note": "plan + tasks generated"
     }
   ]
 }
