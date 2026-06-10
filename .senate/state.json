@@ -528,7 +528,7 @@
       "issue": 24,
       "pr": 25,
       "branch": "task/T011",
-      "status": "in_review",
+      "status": "merged",
       "review_cycles": 0,
       "worker_runs": 1
     }
