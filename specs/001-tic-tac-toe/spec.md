@@ -117,6 +117,8 @@ After a game ends (win or draw) or at any point during play, the user can click 
 - **New Game button visibility** → Always visible (100% weighted, D8)
 - **Mark color differentiation** → Two-color — X and O in distinct accessible colors (100% weighted, D5)
 - **Move placement animation** → Subtle CSS transition (fade-in or scale-up, under 200ms) (80% weighted, D7)
+- **Winning-line visual feedback** → Highlight winning cells with background color (70% weighted, D1)
+
 
 
 ## Deferred to Probe
@@ -133,3 +135,5 @@ These dimensions are **intentionally deferred**: the group reacts to the deploye
 
 - R100: System MUST render X marks and O marks in two distinct, accessible colors so that the two players' marks are visually differentiated by color (not only by shape). — *provenance: probe: 100% weighted (D5)*
 - R101: System MUST animate each newly placed mark with a subtle CSS transition (fade-in or scale-up) lasting no more than 200 ms. — *provenance: probe: 80% weighted (D7)*
+- R102: System MUST highlight the three winning cells with a visually distinct background color when a player achieves three in a row, so the winning line is immediately identifiable on the board. — *provenance: probe: 70% weighted (D1)*
+
