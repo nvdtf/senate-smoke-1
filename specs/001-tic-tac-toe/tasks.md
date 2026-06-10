@@ -110,7 +110,7 @@
 - [x] T017 [P] Add distinct accessible color CSS rules for X and O marks (e.g., `.cell-x` and `.cell-o` classes with two contrasting, accessible colors) in style.css (R100)
 - [x] T018 [P] Add CSS transition or keyframe animation for mark placement (fade-in or scale-up, max 200ms duration) in style.css (R101)
 - [x] T019 Update renderBoard function in game.js to apply `.cell-x` / `.cell-o` CSS classes based on cell content for color differentiation, and add an animation trigger class on newly placed marks so the CSS transition fires (R100, R101)
-- [ ] T020 Validate mark color differentiation and placement animation by opening index.html in a browser, placing marks, and confirming X and O render in distinct colors and each new mark animates in within 200ms
+- [x] T020 Validate mark color differentiation and placement animation by opening index.html in a browser, placing marks, and confirming X and O render in distinct colors and each new mark animates in within 200ms
 
 **Checkpoint**: All probe-decided visual enhancements are implemented and validated.
 
