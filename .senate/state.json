@@ -1,5 +1,5 @@
 {
-  "phase": "FEEDBACK",
+  "phase": "DELTA",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -431,7 +431,7 @@
   },
   "feedback_issue": 36,
   "probe_url": "https://nvdtf.github.io/senate-smoke-1/",
-  "delta_loops": 0,
+  "delta_loops": 1,
   "delta_aggregate": {
     "results": [
       {
@@ -710,6 +710,12 @@
       "to": "FEEDBACK",
       "at": "2026-06-10T19:52:55.807194Z",
       "note": "round 1: 2 delta requirements"
+    },
+    {
+      "from": "FEEDBACK",
+      "to": "DELTA",
+      "at": "2026-06-10T19:53:09.073782Z",
+      "note": "delta loop 1/2"
     }
   ]
 }
