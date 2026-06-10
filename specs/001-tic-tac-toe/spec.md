@@ -81,6 +81,9 @@ After a game ends (win or draw) or at any point during play, the user can click 
 - **FR-008**: System MUST prevent any further moves after the game ends (win or draw). [Human 50% / Agent-inferred 50%]
 - **FR-009**: System MUST provide a "New Game" button that resets the board and game state to the initial state. [Human 60% / Agent-inferred 40%]
 - **FR-010**: System MUST function as a static page that can be opened directly in any modern browser without a server or build step. [Human 30% / Agent-inferred 70% — derived from constitution: Static Simplicity]
+- **FR-011**: System MUST render the game board responsively, scaling to the viewport width so that the board is fully usable on mobile devices without horizontal scrolling. [Human 70% / Agent-inferred 30% — decided: weighted vote (D2)]
+- **FR-012**: System MUST support full keyboard navigation of all board cells (arrow keys and/or Tab) and include ARIA roles and labels so that screen readers can announce cell position, cell state, and game status. [Human 100% / Agent-inferred 0% — decided: weighted vote (D3)]
+- **FR-013**: System MUST display the "New Game" button at all times — before, during, and after a game — not only after the game ends. [Human 100% / Agent-inferred 0% — decided: weighted vote (D8)]
 
 ### Key Entities
 
@@ -112,12 +115,6 @@ After a game ends (win or draw) or at any point during play, the user can click 
 - **Board responsiveness and mobile support** → Responsive board scaling to viewport (mobile-friendly) (70% weighted, D2)
 - **Keyboard accessibility** → Full keyboard nav + ARIA roles for screen readers (100% weighted, D3)
 - **New Game button visibility** → Always visible (100% weighted, D8)
-
-## Requirements
-
-- FR-011: System MUST render the game board responsively, scaling to the viewport width so that the board is fully usable on mobile devices without horizontal scrolling. — *provenance: decided: 70% weighted (D2)*
-- FR-012: System MUST support full keyboard navigation of all board cells (arrow keys and/or Tab) and include ARIA roles and labels so that screen readers can announce cell position, cell state, and game status. — *provenance: decided: 100% weighted (D3)*
-- FR-013: System MUST display the "New Game" button at all times — before, during, and after a game — not only after the game ends. — *provenance: decided: 100% weighted (D8)*
 
 ## Deferred to Probe
 
