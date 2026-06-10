@@ -1,5 +1,5 @@
 {
-  "phase": "SPEC_PATCHED",
+  "phase": "RATIFIED",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -432,7 +432,7 @@
     ]
   },
   "delta_loops": 0,
-  "sessions": 8,
+  "sessions": 11,
   "history": [
     {
       "from": "IDLE",
@@ -457,6 +457,12 @@
       "to": "SPEC_PATCHED",
       "at": "2026-06-10T18:53:00.973938Z",
       "note": "3 clarifications, 3 requirements, deferred: D1,D4,D5,D6,D7"
+    },
+    {
+      "from": "SPEC_PATCHED",
+      "to": "RATIFIED",
+      "at": "2026-06-10T18:55:17.505422Z",
+      "note": "PR #2 labeled ratified"
     }
   ]
 }
