@@ -1,5 +1,5 @@
 {
-  "phase": "DELTA",
+  "phase": "BUILDING",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -643,7 +643,7 @@
       "worker_runs": 1
     }
   },
-  "sessions": 54,
+  "sessions": 56,
   "history": [
     {
       "from": "IDLE",
@@ -716,6 +716,18 @@
       "to": "DELTA",
       "at": "2026-06-10T19:53:09.073782Z",
       "note": "delta loop 1/2"
+    },
+    {
+      "from": "DELTA",
+      "to": "ANALYZED",
+      "at": "2026-06-10T19:57:09.576806Z",
+      "note": "delta 1 ratified + analyzed"
+    },
+    {
+      "from": "ANALYZED",
+      "to": "BUILDING",
+      "at": "2026-06-10T19:57:09.621977Z",
+      "note": "dispatch started"
     }
   ]
 }
