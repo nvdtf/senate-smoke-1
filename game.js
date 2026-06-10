@@ -16,6 +16,17 @@ const gameState = {
   winner: null,
 };
 
+function checkWin() {
+  for (const [a, b, c] of WINNING_LINES) {
+    if (gameState.board[a] !== '' &&
+        gameState.board[a] === gameState.board[b] &&
+        gameState.board[a] === gameState.board[c]) {
+      return gameState.board[a];
+    }
+  }
+  return null;
+}
+
 function makeMove(cellIndex) {
   if (gameState.gameOver) return false;
   if (gameState.board[cellIndex] !== '') return false;
