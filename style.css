@@ -84,12 +84,12 @@ h1 {
   }
 }
 
-.cell-x {
+#board button.cell-x {
   color: #2563eb;
   animation: mark-appear 180ms ease-out;
 }
 
-.cell-o {
+#board button.cell-o {
   color: #dc2626;
   animation: mark-appear 180ms ease-out;
 }
