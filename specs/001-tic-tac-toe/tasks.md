@@ -85,7 +85,7 @@
 ### Implementation for User Story 3
 
 - [x] T012 [US3] Implement resetGame function that restores GameState to initial values (empty board, currentPlayer 'X', gameOver false, winner null) and calls renderBoard + updateStatus in game.js
-- [ ] T013 [US3] Wire #new-game button click handler to resetGame in game.js
+- [x] T013 [US3] Wire #new-game button click handler to resetGame in game.js
 
 **Checkpoint**: All three user stories are independently functional. Core game is complete.
 
