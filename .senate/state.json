@@ -486,9 +486,18 @@
       "status": "merged",
       "review_cycles": 0,
       "worker_runs": 1
+    },
+    "T007": {
+      "id": "T007",
+      "issue": 16,
+      "pr": 17,
+      "branch": "task/T007",
+      "status": "in_review",
+      "review_cycles": 0,
+      "worker_runs": 1
     }
   },
-  "sessions": 30,
+  "sessions": 32,
   "history": [
     {
       "from": "IDLE",
