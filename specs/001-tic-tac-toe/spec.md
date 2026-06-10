@@ -106,3 +106,25 @@ After a game ends (win or draw) or at any point during play, the user can click 
 - No sound effects or animations are required for v1. [Agent-inferred 100%]
 - The game targets modern browsers (last 2 major versions of Chrome, Firefox, Safari, Edge). [Agent-inferred 100%]
 - The project follows the Static Simplicity constitutional principle: vanilla JavaScript, HTML5, CSS3, no build step, no backend. [Derived from constitution]
+
+## Clarifications
+
+- **Board responsiveness and mobile support** → Responsive board scaling to viewport (mobile-friendly) (70% weighted, D2)
+- **Keyboard accessibility** → Full keyboard nav + ARIA roles for screen readers (100% weighted, D3)
+- **New Game button visibility** → Always visible (100% weighted, D8)
+
+## Requirements
+
+- FR-011: System MUST render the game board responsively, scaling to the viewport width so that the board is fully usable on mobile devices without horizontal scrolling. — *provenance: decided: 70% weighted (D2)*
+- FR-012: System MUST support full keyboard navigation of all board cells (arrow keys and/or Tab) and include ARIA roles and labels so that screen readers can announce cell position, cell state, and game status. — *provenance: decided: 100% weighted (D3)*
+- FR-013: System MUST display the "New Game" button at all times — before, during, and after a game — not only after the game ends. — *provenance: decided: 100% weighted (D8)*
+
+## Deferred to Probe
+
+These dimensions are **intentionally deferred**: the group reacts to the deployed probe instead of predicting from text.
+
+- D1 — Winning-line visual feedback (a: Status text only — no board highlight · b: Highlight winning cells with background color · c: Animated strike-through line across winning cells)
+- D4 — Session score tally (a: No score tracking — each game standalone · b: Running X/O/Draw tally, resets on page refresh)
+- D5 — Mark color differentiation (a: Monochrome — both marks same color · b: Two-color — X and O in distinct accessible colors)
+- D6 — Visual tone (a: Minimal monochrome — white background, black lines, clean sans-serif · b: Playful colorful — bright palette, rounded corners, game energy · c: Dark-mode-first — dark background, light marks, modern feel)
+- D7 — Move placement animation (a: Instant mark placement, no animation · b: Subtle CSS transition (fade-in or scale-up, under 200ms))
