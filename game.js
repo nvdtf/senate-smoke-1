@@ -27,6 +27,10 @@ function checkWin() {
   return null;
 }
 
+function checkDraw() {
+  return gameState.board.every(cell => cell !== '') && checkWin() === null;
+}
+
 function makeMove(cellIndex) {
   if (gameState.gameOver) return false;
   if (gameState.board[cellIndex] !== '') return false;
