@@ -1,19 +1,187 @@
 {
-  "phase": "IDEA",
+  "phase": "INTERROGATED",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
   "speckit_version": "v0.10.1",
   "idea": "build tic-tac-toe",
   "idea_issue": 1,
+  "feature_branch": "001-tic-tac-toe",
+  "feature_dir": "specs/001-tic-tac-toe",
+  "feature_pr": 2,
+  "questionnaire_issue": 3,
+  "dimensions": [
+    {
+      "id": "D1",
+      "title": "Winning-line visual feedback",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Status text only — no board highlight"
+        },
+        {
+          "key": "b",
+          "label": "Highlight winning cells with background color"
+        },
+        {
+          "key": "c",
+          "label": "Animated strike-through line across winning cells"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "Option c implies animation work conflicting with the agent-inferred no-animations assumption",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D2",
+      "title": "Board responsiveness and mobile support",
+      "stakes": "HIGH",
+      "options": [
+        {
+          "key": "a",
+          "label": "Fixed-size centered board (~400px, desktop only)"
+        },
+        {
+          "key": "b",
+          "label": "Responsive board scaling to viewport (mobile-friendly)"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "Option a excludes comfortable mobile play, potentially contradicting SC-004 'any modern browser' intent",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D3",
+      "title": "Keyboard accessibility",
+      "stakes": "HIGH",
+      "options": [
+        {
+          "key": "a",
+          "label": "Mouse and touch only"
+        },
+        {
+          "key": "b",
+          "label": "Keyboard navigation (Tab/Arrow + Enter)"
+        },
+        {
+          "key": "c",
+          "label": "Full keyboard nav + ARIA roles for screen readers"
+        }
+      ],
+      "recommendation": "c",
+      "cost_note": "Option a may not meet accessibility standards if publicly hosted; retrofitting ARIA later requires HTML restructuring",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D4",
+      "title": "Session score tally",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "No score tracking — each game standalone"
+        },
+        {
+          "key": "b",
+          "label": "Running X/O/Draw tally, resets on page refresh"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D5",
+      "title": "Mark color differentiation",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Monochrome — both marks same color"
+        },
+        {
+          "key": "b",
+          "label": "Two-color — X and O in distinct accessible colors"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D6",
+      "title": "Visual tone",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Minimal monochrome — white background, black lines, clean sans-serif"
+        },
+        {
+          "key": "b",
+          "label": "Playful colorful — bright palette, rounded corners, game energy"
+        },
+        {
+          "key": "c",
+          "label": "Dark-mode-first — dark background, light marks, modern feel"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D7",
+      "title": "Move placement animation",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Instant mark placement, no animation"
+        },
+        {
+          "key": "b",
+          "label": "Subtle CSS transition (fade-in or scale-up, under 200ms)"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "Agent-inferred 'no animations' assumption was never human-ratified",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D8",
+      "title": "New Game button visibility",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Always visible"
+        },
+        {
+          "key": "b",
+          "label": "Visible only after game ends"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "Option b contradicts User Story 3 Acceptance Scenario 2 which requires mid-game restart",
+      "defer_to_probe": false
+    }
+  ],
   "delta_loops": 0,
-  "sessions": 3,
+  "sessions": 4,
   "history": [
     {
       "from": "IDLE",
       "to": "IDEA",
       "at": "2026-06-10T18:44:19.32053Z",
       "note": "idea issue #1"
+    },
+    {
+      "from": "IDEA",
+      "to": "INTERROGATED",
+      "at": "2026-06-10T18:50:19.402588Z",
+      "note": "questionnaire #3 (8 dims), feature PR #2"
     }
   ]
 }
