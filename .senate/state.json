@@ -1,5 +1,5 @@
 {
-  "phase": "PROBE_LIVE",
+  "phase": "FEEDBACK",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -175,20 +175,20 @@
       "stakes": "MED",
       "winner": "b",
       "winner_label": "Highlight winning cells with background color",
-      "weighted_pct": 50,
-      "status": "conflict",
+      "weighted_pct": 70,
+      "status": "decided",
       "by_choice": {
-        "b": 50,
-        "c": 50
+        "a": 30,
+        "b": 70
       },
       "votes": {
-        "alice": "c",
-        "bob": "b",
+        "alice": "b",
+        "bob": "a",
         "carol": "b"
       },
       "sources": {
         "alice": "proxy",
-        "bob": "recommendation",
+        "bob": "proxy",
         "carol": "proxy"
       }
     },
@@ -301,7 +301,7 @@
       },
       "sources": {
         "alice": "proxy",
-        "bob": "recommendation",
+        "bob": "proxy",
         "carol": "proxy"
       }
     },
@@ -437,8 +437,8 @@
       {
         "dimension": "D1",
         "winner": "b",
-        "weighted_pct": 50,
-        "status": "conflict"
+        "weighted_pct": 70,
+        "status": "decided"
       },
       {
         "dimension": "D4",
@@ -447,52 +447,28 @@
         "status": "conflict"
       },
       {
-        "dimension": "D5",
-        "winner": "b",
-        "weighted_pct": 100,
-        "status": "decided"
-      },
-      {
         "dimension": "D6",
         "winner": "a",
         "weighted_pct": 50,
         "status": "conflict"
-      },
-      {
-        "dimension": "D7",
-        "winner": "b",
-        "weighted_pct": 80,
-        "status": "decided"
       }
     ],
     "clarifications": [
       {
-        "question": "Mark color differentiation",
-        "answer": "Two-color — X and O in distinct accessible colors",
-        "weighted_pct": 100,
-        "provenance": "D5"
-      },
-      {
-        "question": "Move placement animation",
-        "answer": "Subtle CSS transition (fade-in or scale-up, under 200ms)",
-        "weighted_pct": 80,
-        "provenance": "D7"
+        "question": "Winning-line visual feedback",
+        "answer": "Highlight winning cells with background color",
+        "weighted_pct": 70,
+        "provenance": "D1"
       }
     ],
     "requirements": [
       {
-        "id": "R100",
-        "text": "System MUST render X marks and O marks in two distinct, accessible colors so that the two players' marks are visually differentiated by color (not only by shape).",
-        "provenance": "probe: 100% weighted (D5)"
-      },
-      {
-        "id": "R101",
-        "text": "System MUST animate each newly placed mark with a subtle CSS transition (fade-in or scale-up) lasting no more than 200 ms.",
-        "provenance": "probe: 80% weighted (D7)"
+        "id": "R102",
+        "text": "System MUST highlight the three winning cells with a visually distinct background color when a player achieves three in a row, so the winning line is immediately identifiable on the board.",
+        "provenance": "probe: 70% weighted (D1)"
       }
     ],
     "deferred": [
-      "D1",
       "D4",
       "D6"
     ]
@@ -679,7 +655,7 @@
       "worker_runs": 2
     }
   },
-  "sessions": 65,
+  "sessions": 69,
   "history": [
     {
       "from": "IDLE",
@@ -776,6 +752,12 @@
       "to": "PROBE_LIVE",
       "at": "2026-06-10T20:14:09.563448Z",
       "note": "probe live at https://nvdtf.github.io/senate-smoke-1/, feedback issue #45"
+    },
+    {
+      "from": "PROBE_LIVE",
+      "to": "FEEDBACK",
+      "at": "2026-06-10T20:17:21.548469Z",
+      "note": "round 2: 1 delta requirements"
     }
   ]
 }
