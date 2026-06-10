@@ -456,7 +456,7 @@
       "issue": 7,
       "pr": 9,
       "branch": "task/T003",
-      "status": "in_review",
+      "status": "merged",
       "review_cycles": 0,
       "worker_runs": 1
     }
