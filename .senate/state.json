@@ -432,7 +432,18 @@
     ]
   },
   "delta_loops": 0,
-  "sessions": 17,
+  "tasks": {
+    "T001": {
+      "id": "T001",
+      "issue": 4,
+      "pr": 5,
+      "branch": "task/T001",
+      "status": "in_review",
+      "review_cycles": 0,
+      "worker_runs": 1
+    }
+  },
+  "sessions": 19,
   "history": [
     {
       "from": "IDLE",

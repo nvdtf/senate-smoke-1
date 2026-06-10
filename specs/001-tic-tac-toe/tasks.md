@@ -25,7 +25,7 @@
 
 **Purpose**: Create the three project files with foundational structure
 
-- [ ] T001 Create index.html with full HTML structure per UI contract (h1, #status with aria-live, #board grid with 3 rows of 3 gridcell buttons, #new-game button, link to style.css, script to game.js) in index.html
+- [x] T001 Create index.html with full HTML structure per UI contract (h1, #status with aria-live, #board grid with 3 rows of 3 gridcell buttons, #new-game button, link to style.css, script to game.js) in index.html
 
 ---
 
