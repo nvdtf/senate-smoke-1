@@ -1,5 +1,5 @@
 {
-  "phase": "INTERROGATED",
+  "phase": "VOTED",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -168,8 +168,193 @@
       "defer_to_probe": false
     }
   ],
+  "dim_tallies": [
+    {
+      "dimension": "D1",
+      "title": "Winning-line visual feedback",
+      "stakes": "MED",
+      "winner": "c",
+      "winner_label": "Animated strike-through line across winning cells",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 30,
+        "b": 20,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D2",
+      "title": "Board responsiveness and mobile support",
+      "stakes": "HIGH",
+      "winner": "b",
+      "winner_label": "Responsive board scaling to viewport (mobile-friendly)",
+      "weighted_pct": 70,
+      "status": "decided",
+      "by_choice": {
+        "a": 30,
+        "b": 70
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D3",
+      "title": "Keyboard accessibility",
+      "stakes": "HIGH",
+      "winner": "c",
+      "winner_label": "Full keyboard nav + ARIA roles for screen readers",
+      "weighted_pct": 100,
+      "status": "decided",
+      "by_choice": {
+        "c": 100
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "c",
+        "carol": "c"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D4",
+      "title": "Session score tally",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "No score tracking — each game standalone",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 50,
+        "b": 50
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D5",
+      "title": "Mark color differentiation",
+      "stakes": "LOW",
+      "winner": "b",
+      "winner_label": "Two-color — X and O in distinct accessible colors",
+      "weighted_pct": 70,
+      "status": "deferred",
+      "by_choice": {
+        "a": 30,
+        "b": 70
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D6",
+      "title": "Visual tone",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "Minimal monochrome — white background, black lines, clean sans-serif",
+      "weighted_pct": 50,
+      "status": "deferred",
+      "by_choice": {
+        "a": 50,
+        "b": 50
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D7",
+      "title": "Move placement animation",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "Instant mark placement, no animation",
+      "weighted_pct": 50,
+      "status": "deferred",
+      "by_choice": {
+        "a": 50,
+        "b": 50
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D8",
+      "title": "New Game button visibility",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "Always visible",
+      "weighted_pct": 100,
+      "status": "decided",
+      "by_choice": {
+        "a": 100
+      },
+      "votes": {
+        "alice": "a",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    }
+  ],
   "delta_loops": 0,
-  "sessions": 4,
+  "sessions": 7,
   "history": [
     {
       "from": "IDLE",
@@ -182,6 +367,12 @@
       "to": "INTERROGATED",
       "at": "2026-06-10T18:50:19.402588Z",
       "note": "questionnaire #3 (8 dims), feature PR #2"
+    },
+    {
+      "from": "INTERROGATED",
+      "to": "VOTED",
+      "at": "2026-06-10T18:52:34.932482Z",
+      "note": "8 dims tallied, deferred: D1,D4,D5,D6,D7"
     }
   ]
 }
