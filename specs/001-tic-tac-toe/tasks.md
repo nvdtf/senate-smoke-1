@@ -54,7 +54,7 @@
 - [x] T005 [US1] Implement checkWin function that iterates WINNING_LINES and returns the winner ('X'/'O') or null in game.js
 - [x] T006 [US1] Implement checkDraw function that returns true when all 9 cells are filled and no winner exists in game.js
 - [x] T007 [US1] Integrate checkWin and checkDraw into makeMove so gameOver and winner are set after each move, blocking further moves (FR-008) in game.js
-- [ ] T008 [US1] Implement renderBoard function that updates each cell button's text content, disabled attribute, and aria-label ("Row r, Column c: X/O/empty") in game.js
+- [x] T008 [US1] Implement renderBoard function that updates each cell button's text content, disabled attribute, and aria-label ("Row r, Column c: X/O/empty") in game.js
 - [ ] T009 [US1] Wire click event delegation on #board to call makeMove and renderBoard for each cell button via data-index in game.js
 
 **Checkpoint**: At this point, a full game of tic-tac-toe is playable (X wins, O wins, or draw). User Story 1 is independently functional.
