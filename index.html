@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Tic-Tac-Toe</h1>
+
+  <div id="status" aria-live="polite">X's turn</div>
+
+  <div id="board" role="grid" aria-label="Tic-Tac-Toe board">
+    <div role="row">
+      <button role="gridcell" aria-label="Row 1, Column 1: empty" data-index="0"></button>
+      <button role="gridcell" aria-label="Row 1, Column 2: empty" data-index="1"></button>
+      <button role="gridcell" aria-label="Row 1, Column 3: empty" data-index="2"></button>
+    </div>
+    <div role="row">
+      <button role="gridcell" aria-label="Row 2, Column 1: empty" data-index="3"></button>
+      <button role="gridcell" aria-label="Row 2, Column 2: empty" data-index="4"></button>
+      <button role="gridcell" aria-label="Row 2, Column 3: empty" data-index="5"></button>
+    </div>
+    <div role="row">
+      <button role="gridcell" aria-label="Row 3, Column 1: empty" data-index="6"></button>
+      <button role="gridcell" aria-label="Row 3, Column 2: empty" data-index="7"></button>
+      <button role="gridcell" aria-label="Row 3, Column 3: empty" data-index="8"></button>
+    </div>
+  </div>
+
+  <button id="new-game">New Game</button>
+
+  <script src="game.js"></script>
+</body>
+</html>
