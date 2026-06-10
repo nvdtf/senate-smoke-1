@@ -80,10 +80,21 @@ function renderBoard() {
   updateStatus();
 }
 
+function resetGame() {
+  gameState.board = ['', '', '', '', '', '', '', '', ''];
+  gameState.currentPlayer = 'X';
+  gameState.gameOver = false;
+  gameState.winner = null;
+  renderBoard();
+  updateStatus();
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   var board = document.getElementById('board');
 
   updateStatus();
+
+  document.getElementById('new-game').addEventListener('click', resetGame);
 
   board.addEventListener('click', function (e) {
     var button = e.target.closest('button[data-index]');
