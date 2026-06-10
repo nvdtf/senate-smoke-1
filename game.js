@@ -53,6 +53,21 @@ function makeMove(cellIndex) {
   return true;
 }
 
+function renderBoard() {
+  const cells = document.querySelectorAll('#board button[data-index]');
+  cells.forEach(function (cell) {
+    const index = Number(cell.getAttribute('data-index'));
+    const value = gameState.board[index];
+    const row = Math.floor(index / 3) + 1;
+    const col = (index % 3) + 1;
+
+    cell.textContent = value;
+    cell.disabled = value !== '' || gameState.gameOver;
+    cell.setAttribute('aria-label',
+      'Row ' + row + ', Column ' + col + ': ' + (value || 'empty'));
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   // Entry point — wired up by subsequent tasks
 });
