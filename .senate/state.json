@@ -1,5 +1,5 @@
 {
-  "phase": "ANALYZED",
+  "phase": "BUILDING",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -475,6 +475,12 @@
       "to": "ANALYZED",
       "at": "2026-06-10T19:10:20.137849Z",
       "note": "analyze passed"
+    },
+    {
+      "from": "ANALYZED",
+      "to": "BUILDING",
+      "at": "2026-06-10T19:10:36.175271Z",
+      "note": "dispatch started"
     }
   ]
 }
