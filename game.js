@@ -96,6 +96,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.getElementById('new-game').addEventListener('click', resetGame);
 
+  board.addEventListener('keydown', function (e) {
+    var button = e.target.closest('button[data-index]');
+    if (!button) return;
+    var index = Number(button.getAttribute('data-index'));
+    var row = Math.floor(index / 3);
+    var col = index % 3;
+    var next = -1;
+
+    if (e.key === 'ArrowUp' && row > 0) next = index - 3;
+    else if (e.key === 'ArrowDown' && row < 2) next = index + 3;
+    else if (e.key === 'ArrowLeft' && col > 0) next = index - 1;
+    else if (e.key === 'ArrowRight' && col < 2) next = index + 1;
+
+    if (next >= 0) {
+      e.preventDefault();
+      var target = board.querySelector('button[data-index="' + next + '"]');
+      if (target) target.focus();
+    }
+  });
+
   board.addEventListener('click', function (e) {
     var button = e.target.closest('button[data-index]');
     if (!button) return;
