@@ -111,7 +111,7 @@
 - [x] T018 [P] Add CSS transition or keyframe animation for mark placement (fade-in or scale-up, max 200ms duration) in style.css (R101)
 - [x] T019 Update renderBoard function in game.js to apply `.cell-x` / `.cell-o` CSS classes based on cell content for color differentiation, and add an animation trigger class on newly placed marks so the CSS transition fires (R100, R101)
 - [x] T020 Validate mark color differentiation and placement animation by opening index.html in a browser, placing marks, and confirming X and O render in distinct colors and each new mark animates in within 200ms
-- [ ] T021 [P] Add `.cell-win` CSS class with a visually distinct background color for winning cells in style.css (R102)
+- [x] T021 [P] Add `.cell-win` CSS class with a visually distinct background color for winning cells in style.css (R102)
 - [ ] T022 Update game state to store winning line cell indices (e.g., `winningCells` array), modify checkWin to populate them on win detection, and update renderBoard to apply `.cell-win` class to the three winning cells in game.js (R102)
 - [ ] T023 Validate winning-cell highlight by opening index.html in a browser, playing to a win on multiple lines (row, column, diagonal), and confirming the three winning cells display a distinct background color each time in index.html (R102)
 
