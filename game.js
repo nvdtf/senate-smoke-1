@@ -86,13 +86,12 @@ function resetGame() {
   gameState.gameOver = false;
   gameState.winner = null;
   renderBoard();
-  updateStatus();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   var board = document.getElementById('board');
 
-  updateStatus();
+  renderBoard();
 
   document.getElementById('new-game').addEventListener('click', resetGame);
 
