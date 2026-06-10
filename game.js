@@ -83,6 +83,8 @@ function renderBoard() {
 document.addEventListener('DOMContentLoaded', function () {
   var board = document.getElementById('board');
 
+  updateStatus();
+
   board.addEventListener('click', function (e) {
     var button = e.target.closest('button[data-index]');
     if (!button) return;
