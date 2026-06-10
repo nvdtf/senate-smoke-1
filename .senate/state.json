@@ -1,5 +1,5 @@
 {
-  "phase": "PROBE_LIVE",
+  "phase": "FEEDBACK",
   "backend": "real",
   "repo_name": "senate-smoke-1",
   "repo_slug": "nvdtf/senate-smoke-1",
@@ -173,23 +173,22 @@
       "dimension": "D1",
       "title": "Winning-line visual feedback",
       "stakes": "MED",
-      "winner": "c",
-      "winner_label": "Animated strike-through line across winning cells",
+      "winner": "b",
+      "winner_label": "Highlight winning cells with background color",
       "weighted_pct": 50,
       "status": "conflict",
       "by_choice": {
-        "a": 30,
-        "b": 20,
+        "b": 50,
         "c": 50
       },
       "votes": {
         "alice": "c",
-        "bob": "a",
+        "bob": "b",
         "carol": "b"
       },
       "sources": {
         "alice": "proxy",
-        "bob": "proxy",
+        "bob": "recommendation",
         "carol": "proxy"
       }
     },
@@ -257,7 +256,7 @@
       },
       "sources": {
         "alice": "proxy",
-        "bob": "proxy",
+        "bob": "recommendation",
         "carol": "proxy"
       }
     },
@@ -267,20 +266,19 @@
       "stakes": "LOW",
       "winner": "b",
       "winner_label": "Two-color — X and O in distinct accessible colors",
-      "weighted_pct": 70,
-      "status": "deferred",
+      "weighted_pct": 100,
+      "status": "decided",
       "by_choice": {
-        "a": 30,
-        "b": 70
+        "b": 100
       },
       "votes": {
         "alice": "b",
-        "bob": "a",
+        "bob": "b",
         "carol": "b"
       },
       "sources": {
         "alice": "proxy",
-        "bob": "proxy",
+        "bob": "recommendation",
         "carol": "proxy"
       }
     },
@@ -291,7 +289,7 @@
       "winner": "a",
       "winner_label": "Minimal monochrome — white background, black lines, clean sans-serif",
       "weighted_pct": 50,
-      "status": "deferred",
+      "status": "conflict",
       "by_choice": {
         "a": 50,
         "b": 50
@@ -303,7 +301,7 @@
       },
       "sources": {
         "alice": "proxy",
-        "bob": "proxy",
+        "bob": "recommendation",
         "carol": "proxy"
       }
     },
@@ -311,22 +309,22 @@
       "dimension": "D7",
       "title": "Move placement animation",
       "stakes": "LOW",
-      "winner": "a",
-      "winner_label": "Instant mark placement, no animation",
-      "weighted_pct": 50,
-      "status": "deferred",
+      "winner": "b",
+      "winner_label": "Subtle CSS transition (fade-in or scale-up, under 200ms)",
+      "weighted_pct": 80,
+      "status": "decided",
       "by_choice": {
-        "a": 50,
-        "b": 50
+        "a": 20,
+        "b": 80
       },
       "votes": {
         "alice": "b",
-        "bob": "a",
+        "bob": "b",
         "carol": "a"
       },
       "sources": {
         "alice": "proxy",
-        "bob": "proxy",
+        "bob": "recommendation",
         "carol": "proxy"
       }
     },
@@ -434,6 +432,71 @@
   "feedback_issue": 36,
   "probe_url": "https://nvdtf.github.io/senate-smoke-1/",
   "delta_loops": 0,
+  "delta_aggregate": {
+    "results": [
+      {
+        "dimension": "D1",
+        "winner": "b",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D4",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D5",
+        "winner": "b",
+        "weighted_pct": 100,
+        "status": "decided"
+      },
+      {
+        "dimension": "D6",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D7",
+        "winner": "b",
+        "weighted_pct": 80,
+        "status": "decided"
+      }
+    ],
+    "clarifications": [
+      {
+        "question": "Mark color differentiation",
+        "answer": "Two-color — X and O in distinct accessible colors",
+        "weighted_pct": 100,
+        "provenance": "D5"
+      },
+      {
+        "question": "Move placement animation",
+        "answer": "Subtle CSS transition (fade-in or scale-up, under 200ms)",
+        "weighted_pct": 80,
+        "provenance": "D7"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "R100",
+        "text": "System MUST render X marks and O marks in two distinct, accessible colors so that the two players' marks are visually differentiated by color (not only by shape).",
+        "provenance": "probe: 100% weighted (D5)"
+      },
+      {
+        "id": "R101",
+        "text": "System MUST animate each newly placed mark with a subtle CSS transition (fade-in or scale-up) lasting no more than 200 ms.",
+        "provenance": "probe: 80% weighted (D7)"
+      }
+    ],
+    "deferred": [
+      "D1",
+      "D4",
+      "D6"
+    ]
+  },
   "tasks": {
     "T001": {
       "id": "T001",
@@ -580,7 +643,7 @@
       "worker_runs": 1
     }
   },
-  "sessions": 50,
+  "sessions": 54,
   "history": [
     {
       "from": "IDLE",
@@ -641,6 +704,12 @@
       "to": "PROBE_LIVE",
       "at": "2026-06-10T19:50:30.45064Z",
       "note": "probe live at https://nvdtf.github.io/senate-smoke-1/, feedback issue #36"
+    },
+    {
+      "from": "PROBE_LIVE",
+      "to": "FEEDBACK",
+      "at": "2026-06-10T19:52:55.807194Z",
+      "note": "round 1: 2 delta requirements"
     }
   ]
 }
