@@ -70,7 +70,7 @@
 ### Implementation for User Story 2
 
 - [x] T010 [US2] Implement updateStatus function that sets #status textContent to turn indicator ("X's turn"/"O's turn"), win announcement ("X wins!"/"O wins!"), or draw ("It's a draw!") in game.js
-- [ ] T011 [US2] Integrate updateStatus into makeMove flow and DOMContentLoaded initialization so status reflects game state at all times (FR-007) in game.js
+- [x] T011 [US2] Integrate updateStatus into makeMove flow and DOMContentLoaded initialization so status reflects game state at all times (FR-007) in game.js
 
 **Checkpoint**: Status display is always accurate. User Stories 1 AND 2 are independently functional.
 
